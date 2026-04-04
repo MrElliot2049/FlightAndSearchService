@@ -17,7 +17,7 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false
       },
-      cityid: {
+      cityId: {
         type: Sequelize.INTEGER,
         onDelete: 'CASCADE',
         allowNull: false,
