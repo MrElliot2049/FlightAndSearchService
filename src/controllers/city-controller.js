@@ -104,11 +104,31 @@ const getAll = async (req, res) => {
         })
     }
 }
-
+// post -> /cities
+const addMultipleCities = async (req, res) => {
+     try {
+        const cities = await cityService.addMultipleCities(req.body);
+        return res.status(200).json({
+            data : cities,
+            success: true,
+            message : "Successfully added all cities",
+            err: {}
+        });
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({
+            data : {},
+            success: false,
+            message : "Error in getting all cities",
+            err: error
+        })
+    }
+}
 module.exports = {
     create,
     destroy,
     get,
     update,
-    getAll
+    getAll,
+    addMultipleCities
 }
