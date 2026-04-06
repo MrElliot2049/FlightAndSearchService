@@ -48,3 +48,5 @@ class AirportRepository {
         }
     }
 }
+
+module.exports = AirportRepository;
