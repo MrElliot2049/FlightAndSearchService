@@ -124,11 +124,34 @@ const addMultipleCities = async (req, res) => {
         })
     }
 }
+
+// get -> /airport-from-city/:id
+const getAirportFromCity = async (req, res) => {
+     try {
+        const cities = await cityService.getAirportFromCity(req.params.id);
+        return res.status(200).json({
+            data : cities,
+            success: true,
+            message : "Successfully got all airports",
+            err: {}
+        });
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({
+            data : {},
+            success: false,
+            message : "Error in getting all airports",
+            err: error
+        })
+    }
+}
+
 module.exports = {
     create,
     destroy,
     get,
     update,
     getAll,
-    addMultipleCities
+    addMultipleCities,
+    getAirportFromCity
 }

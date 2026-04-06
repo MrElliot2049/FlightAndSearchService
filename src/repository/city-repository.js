@@ -81,6 +81,17 @@ class CityRepository {
             throw {error};
         }
     }
+
+    async getAirportFromCity(cityId) {
+        try {
+            const city = await City.findByPk(cityId);
+            const airport = await city.getAirports();
+            return airport;
+        } catch (error) {
+            console.log('Something went wrong at the repository layer');
+            throw {error};
+        }
+    }
 } 
 
 module.exports = CityRepository;

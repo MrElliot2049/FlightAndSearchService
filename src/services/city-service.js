@@ -63,5 +63,15 @@ class CityService {
             throw {error};
         }
     }
+
+    async getAirportFromCity(cityId) {
+        try {
+            const airport = await this.cityRepository.getAirportFromCity(cityId);
+            return airport;
+        } catch (error) {
+            console.log('Something went wrong at the service layer');
+            throw {error};
+        }
+    }
 }
 module.exports = CityService;

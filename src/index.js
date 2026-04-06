@@ -15,14 +15,7 @@ const SetupAndStartSever = async () => {
     app.use('/api', ApiRoutes);
     app.listen(PORT, async () => {
         console.log(`Server started listening on ${PORT}`);
-        //db.sequelize.sync({ alter: true });
-
-        const city = await City.findOne({
-            where: {
-                id: 15
-            }
-        })
-        console.log(city);
+        // db.sequelize.sync({ alter: true });
     });
 }
 
