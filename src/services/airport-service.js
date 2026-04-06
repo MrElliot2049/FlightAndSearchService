@@ -37,7 +37,7 @@ class AirportService{
 
     async getAirport(airportId) {
         try {
-            const airport = this.airportRepository.getAirport(airportId);
+            const airport = await this.airportRepository.getAirport(airportId);
             return airport;
         } catch (error) {
             console.log("Something went wrong at the service layer");

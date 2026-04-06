@@ -1,5 +1,5 @@
 const express = require('express');
-const { PORT , SYNC_DB} = require('./config/serverConfig');
+const { PORT } = require('./config/serverConfig');
 const bodyParser = require('body-parser');
 const ApiRoutes = require('./routes/index');
 const db = require('./models/index')
@@ -15,9 +15,14 @@ const SetupAndStartSever = async () => {
     app.use('/api', ApiRoutes);
     app.listen(PORT, async () => {
         console.log(`Server started listening on ${PORT}`);
-        if (process.env.SYNC_DB) {
-            db.sequelize.sync({ alter: true });
-        }
+        //db.sequelize.sync({ alter: true });
+
+        const city = await City.findOne({
+            where: {
+                id: 15
+            }
+        })
+        console.log(city);
     });
 }
 

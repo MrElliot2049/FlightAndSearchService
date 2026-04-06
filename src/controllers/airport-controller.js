@@ -1,4 +1,4 @@
-const {AirportService} = require('../services/index');
+const { AirportService } = require('../services/index');
 
 const airportService = new AirportService();
 
@@ -18,7 +18,7 @@ const create = async (req, res) => {
             data: {},
             success: false,
             message: "Can't add the airport",
-            error : error
+            error: error
         })
     }
 }
@@ -38,14 +38,14 @@ const destroy = async (req, res) => {
             data: {},
             success: false,
             message: "Can't delete the airport",
-            error : error
+            error: error
         })
     }
 }
 // patch -> /airport/:id
 const update = async (req, res) => {
-     try {
-        const airport = await airportService.updateAirport(req.param.id, req.body);
+    try {
+        const airport = await airportService.updateAirport(req.params.id, req.body);
         return res.status(200).json({
             data: airport,
             success: true,
@@ -58,14 +58,14 @@ const update = async (req, res) => {
             data: {},
             success: false,
             message: "Can't update the airport",
-            error : error
+            error: error
         })
     }
 }
 // get -> /airport/:id
 const get = async (req, res) => {
-     try {
-        const airport = await airportService.getAirport(req.param.id);
+    try {
+        const airport = await airportService.getAirport(req.params.id);
         return res.status(200).json({
             data: airport,
             success: true,
@@ -78,14 +78,14 @@ const get = async (req, res) => {
             data: {},
             success: false,
             message: "Can't get the airport",
-            error : error
+            error: error
         })
     }
 }
 
 module.exports = {
-    create, 
+    create,
     destroy,
-    update, 
+    update,
     get
 }
