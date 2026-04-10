@@ -22,7 +22,16 @@ class FlightService {
         // to do
     }
 }
+
+module.exports = FlightService;
 /**
  * {
- * }
+    "flightNumber":"HMC708",
+    "airplaneId":1,
+    "departureAirportId":2,
+    "arrivalAirportId":3,
+    "arrivalTime":"2024-03-22T14:30:00.000Z",
+    "departureTime":"2024-03-22T14:30:00.000Z",
+    "price":12000
+}
  */
