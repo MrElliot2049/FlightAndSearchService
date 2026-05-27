@@ -23,4 +23,7 @@ router.delete('/airport/:id', AirportController.destroy);
 //flight parts
 router.post('/flights', FlighController.createFlight);
 router.get('/flights',FlighController.getAllFlights);
+router.get('/flights/:id',FlighController.getFlight);
+router.patch('/flights/:id',FlighController.updateFlight);
+
 module.exports = router;
